@@ -1,0 +1,45 @@
+header h1, footer {
+	text-align: center;
+	margin: 10px;
+}
+
+section {
+	margin-bottom: 100px;
+}
+
+.main_image {
+	margin: 0 auto;
+	padding: 2%;
+	width: 300px;
+	height: 300px;
+}
+
+.main_image img {
+	padding: 30px;
+}
+
+.dropping_letters {
+	margin: 0 auto;
+	width: 360px;
+}
+
+.dropping_letters .drop {
+	border: 1px solid black;
+	width: 80px;
+	height: 80px;
+	float: left;
+	padding: 20px;
+	margin: 20px;
+}
+
+.dragging_letters {
+	margin: 0 auto;
+	width: 600px;
+}
+
+.dragging_letters .drag {
+	float: left;
+	margin: 5px;
+	padding: 20px;
+
+}
