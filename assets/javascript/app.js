@@ -1,21 +1,66 @@
 document.addEventListener("DOMContentLoaded", function(){
 
 	function render(){
-		// finiding the main section in HTML
-		var gameSection = document.querySelector(".game_section");
 
-		//creating new element 
-		var mainImg = document.createElement("div"); //img
-		var img = document.createElement("img");
-		
-		var clearfix = document.createElement("div"); 
-		
-		var dropDivMain = document.createElement("div"); //dropping space
-		var dropDivIn = document.createElement("div");
-		var dropDivIn2 = document.createElement("div");
-		var dropDivIn3 = document.createElement("div");
+		var gameSection = $(".game_section"); //main section
 
-		var clearfix2 = document.createElement("div");
+  		//variable with url
+		var mainImg = ["assets/images/cow.jpg"]; //main img
+		var letters = [
+			"assets/images/letter-c.png",
+			"assets/images/letter-g.png",
+			"assets/images/letter-w.png",
+			"assets/images/letter-k.png",
+			"assets/images/letter-o.png"]
+
+		//creating html
+		var mainImg = [
+			"<div class='main_image'>", 
+			"<img src=" + mainImg[0] + ">",
+			"</div>"
+			].join(""); //main image
+
+		var clearfix = [
+			"<div class='clearfix'>,
+			</div>"].join(""); //clearfix 
+
+		var dropSpace = [
+			"<div class="dropping_letters">",
+			"<div class="drop"></div>",
+			"<div class="drop"></div>",
+			"<div class="drop"></div>",
+			"</div>"].join(""); //drop space
+
+		var clearfix2 = [
+			"<div class='clearfix'>,
+			</div>"].join("");
+
+		var dragSpace = [
+			"<div class="dragging_letters">", 
+			"<div class="drag">", 
+			"<img src=" + letters[0] +">", 
+			"</div>",
+			"<div class="drag">",
+			"<img src=" + letters[1] + ">",
+			"</div>",
+			"<div class="drag">",
+			"<img src=" + letters [2] + ">",
+			"</div>",
+			"<div class="drag">",
+			"<img src=" + letters[3] + ">",
+			"</div>",
+			"<div class="drag">",
+			"<img src="+ letters[4] + ">",
+			"</div>",
+			"</div>"]
+		
+
+		//adding to html
+		gameSection.append(mainImg);
+		gameSection.append(clearfix);
+		gameSection.append(dropSpace);
+		gameSection.append(clearfix2);
+		
 
 		var dragDivMain = document.createElement("div"); //dragging space
 		var dragDivImg = document.createElement("div");
@@ -31,18 +76,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 		
 		//setting new element properties
-		mainImg.classList.add("main_image"); //img
-		img.setAttribute("src", "assets/images/cow.jpg");
 		
-		clearfix.classList.add("clearfix"); 
-		
-		dropDivMain.classList.add("dropping_letters"); //dropping space
-		dropDivIn.classList.add("drop");
-		dropDivIn2.classList.add("drop");
-		dropDivIn3.classList.add("drop");
-
-		clearfix2.classList.add("clearfix");
-
 		dragDivMain.classList.add("dragging_letters"); //dragging space
 		dragDivImg.classList.add("drag");
 		dragDivImg2.classList.add("drag");
@@ -98,5 +132,6 @@ document.addEventListener("DOMContentLoaded", function(){
 	}
 
 	render();
+
 	
 });
