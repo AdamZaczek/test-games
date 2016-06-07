@@ -1,45 +1,28 @@
 <!DOCTYPE html>
 <html land="en">
 <head>
-
-  <meta charset="UTF-8">
-  <title>Making words</title>
-  <link rel="stylesheet" href="assets/stylesheets/reset.css">
-  <link rel="stylesheet" href="assets/stylesheets/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
-  <script src="assets/javascript/app.js"></script>
-
+	<meta charset="UTF-8">
+	<title>Making words</title>
+	<link rel="stylesheet" href="assets/stylesheets/reset.css">
+	<link rel="stylesheet" href="assets/stylesheets/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 </head>
 
 <body>
-	<script type="text/javascript">
-		function allowDrop(ev){
-			ev.preventDefault();
-		}
+  <header>
+    <h1>Try to puzzle the word</h1>
+  </header>
 
-		function drag(ev){
-			ev.dataTransfer.setData("text", ev.target.id);
-		}
+  <section class="game-section">
+  </section>
 
-		function drop(ev){
-			ev.preventDefault();
-			var data = ev.dataTransfer.getData("text");
-            ev.target.appendChild(document.getElementById(data));
-		}
-	</script>
+  <div class="clearfix"></div>
 
-	<header>
-		<h1>Try to puzzle the word</h1>
-	</header>
-
-	<section class="game_section">
-	</section>
-
-	<div class="clearfix"></div>
-
-	<footer>
-		<span>Work in progress</span>
-	</footer>
-
+  <footer>
+    <span>Work in progress</span>
+  </footer>
+  
+  <script src="assets/javascript/games/game.js"></script>
+  <script src="assets/javascript/app.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function(){
+
 
 	function render(){
 
@@ -132,6 +132,3 @@ document.addEventListener("DOMContentLoaded", function(){
 	}
 
 	render();
-
-	
-});
