@@ -7,23 +7,23 @@ section {
 	margin-bottom: 100px;
 }
 
-.main_image {
+.main-image {
 	margin: 0 auto;
 	padding: 2%;
 	width: 300px;
 	height: 300px;
 }
 
-.main_image img {
+.main-image img {
 	padding: 30px;
 }
 
-.dropping_letters {
+.dropping-letters {
 	margin: 0 auto;
 	width: 360px;
 }
 
-.dropping_letters .drop {
+.dropping-letters .drop {
 	border: 1px solid black;
 	width: 80px;
 	height: 80px;
@@ -32,12 +32,12 @@ section {
 	margin: 20px;
 }
 
-.dragging_letters {
+.dragging-letters {
 	margin: 0 auto;
 	width: 600px;
 }
 
-.dragging_letters .drag {
+.dragging-letters .drag {
 	float: left;
 	margin: 5px;
 	padding: 20px;
