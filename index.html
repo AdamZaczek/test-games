@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html land="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Making words</title>
-	<link rel="stylesheet" href="assets/stylesheets/reset.css">
-	<link rel="stylesheet" href="assets/stylesheets/style.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+  <meta charset="UTF-8">
+  <title>Making words</title>
+  <link rel="stylesheet" href="assets/stylesheets/reset.css">
+  <link rel="stylesheet" href="assets/stylesheets/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
   <script src="assets/javascript/handlebars-v4.0.5.js"></script>
 </head>
 
 <body>
+  <header>
+    <h1>Try to puzzle the word</h1>
+  </header>
+
+  <section id="gameSection"></section>
+
+  <div class="clearfix"></div>
+
+  <footer>
+    <span>Work in progress</span>
+  </footer>
+  
   <script id="entry" type="text/x-handlebars-template">
     <div>
       <div class='main-image'>
-      <img src='{{imgUrl}}'>
+        <img src='{{imgUrl}}'>
       </div>
       <div class="clearfix"></div>
       <div class="dropping-letters">
@@ -41,20 +53,6 @@
       </div>
     </div>
   </script>
-
-  <header>
-    <h1>Try to puzzle the word</h1>
-  </header>
-
-  <section id="gameSection"></section>
-
-  <div class="clearfix"></div>
-
-  <footer>
-    <span>Work in progress</span>
-  </footer>
-  
-
   <script src="assets/javascript/dragula.min.js"></script>
   <script src="assets/javascript/games/letter-arrangment.js"></script>  
   <script src="assets/javascript/app.js"></script>

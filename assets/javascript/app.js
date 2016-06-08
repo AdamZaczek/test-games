@@ -1,6 +1,6 @@
 /**
-* @description Setting HTML 
-*/
+ * @description Setting HTML 
+ */
 var game = new Game();
 
 var container = document.getElementById("gameSection");
@@ -12,7 +12,3 @@ game.render(container);
 
 // // dragula([document.querySelector(".dragging-letters"), document.querySelector(".dropping-letters")]);
 
-
-// /**
-// * @descripton Using Handlebar
-// */
