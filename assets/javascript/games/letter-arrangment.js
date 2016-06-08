@@ -58,9 +58,9 @@
    */
     this.dropSpace = [
       "<div class=" + this.usingClasses[2] + ">",
-        "<div class=" + this.usingClasses[3] + " ondrop='drop(event)' ondragover='allowDrop(event)'></div>",
-        "<div class=" + this.usingClasses[3] + " ondrop='drop(event)' ondragover='allowDrop(event)'></div>",
-        "<div class=" + this.usingClasses[3] + " ondrop='drop(event)' ondragover='allowDrop(event)'></div>",
+        "<div class=" + this.usingClasses[3] + "></div>",
+        "<div class=" + this.usingClasses[3] + "></div>",
+        "<div class=" + this.usingClasses[3] + "></div>",
       "</div>"
     ].join('');
 
@@ -84,19 +84,19 @@
     this.dragSpace = [
       "<div class=" + this.usingClasses[4] + ">",
         // this.lettersMap.join(''),
-        "<div class='drag' draggable='true' ondragstart='drag(event)'>",
+        "<div class=" + this.usingClasses[5] + ">",
           "<span>"+ this.letters[0] + "</span>",
         "</div>",
-        "<div class='drag' draggable='true' ondragstart='drag(event)'>",
+        "<div class=" + this.usingClasses[5] + ">",
           "<span>"+ this.letters[1] + "</span>",
         "</div>",
-        "<div class='drag' draggable='true' ondragstart='drag(event)'>",
+        "<div class=" + this.usingClasses[5] + ">",
           "<span>"+ this.letters[2] + "</span>",
         "</div>",
-        "<div class='drag' draggable='true' ondragstart='drag(event)'>",
+        "<div class=" + this.usingClasses[5] + ">",
           "<span>"+ this.letters[3] + "<span>",
         "</div>",
-        "<div class='drag' draggable='true' ondragstart='drag(event)'>",
+        "<div class=" + this.usingClasses[5] + ">",
           "<span>"+ this.letters[4] + "<span>",
         "</div>",
       "</div>"
