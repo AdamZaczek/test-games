@@ -1,10 +1,10 @@
 /**
  * @description Setting HTML 
  */
-var game = new Game();
+var letterArrangement = new LetterArrangement();
 
 var container = document.getElementById("gameSection");
-game.render(container);
+letterArrangement.render(container);
 
 // * 
 // * @description Using Drag'n'Drop Dragula

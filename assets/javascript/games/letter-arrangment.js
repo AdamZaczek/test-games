@@ -1,5 +1,5 @@
 (function() {
-  function Game() {}  
+  function LetterArrangement() {}  
   /**
    * Renders game into container
    * @param  {HTMLElement} container
@@ -14,8 +14,8 @@
     var html = template(context);
   
 
-  Game.prototype.render = function(container) {
+  LetterArrangement.prototype.render = function(container) {
     container.innerHTML = html;
   };
-  window.Game = Game;
+  window.LetterArrangement = LetterArrangement;
 })();
