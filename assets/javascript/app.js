@@ -6,8 +6,13 @@ var game = new Game();
 var container = document.getElementById("gameSection");
 game.render(container);
 
-/** 
-* @description Using Drag'n'Drop Dragula
-*/
+// * 
+// * @description Using Drag'n'Drop Dragula
 
-dragula([document.querySelector(".dragging-letters"), document.querySelector(".dropping-letters")]);
+
+// // dragula([document.querySelector(".dragging-letters"), document.querySelector(".dropping-letters")]);
+
+
+// /**
+// * @descripton Using Handlebar
+// */
