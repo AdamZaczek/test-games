@@ -30,7 +30,7 @@ section {
 	float: left;
 	padding: 20px;
 	margin: 20px;
-	position: relative;
+/*	position: relative;*/
 }
 
 .dragging-letters {

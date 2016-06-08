@@ -10,6 +10,4 @@ game.render(container);
 * @description Using Drag'n'Drop Dragula
 */
 
-// var droppingLetters = document.querySelectorAll(".drop");
-// console.log(droppingLetters);
-// dragula([document.querySelector(".dragging-letters"), document.querySelector(".drop-letters")]);
+dragula([document.querySelector(".dragging-letters"), document.querySelector(".dropping-letters")]);
