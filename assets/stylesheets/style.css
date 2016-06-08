@@ -30,7 +30,7 @@ section {
 	float: left;
 	padding: 20px;
 	margin: 20px;
-	position: relative;
+/*	position: relative;*/
 }
 
 .dragging-letters {
@@ -48,9 +48,9 @@ section {
 .drag span {
 	font-size: 40px;
 }
-
+/*
 .dropping-letters .drag {
 	position: absolute;
 	top: 375px;
 	left: 280px;
-}
+}*/

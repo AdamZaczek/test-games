@@ -123,10 +123,6 @@
    var context = {
                   imgUrl: "assets/images/cow.jpg",
                   letter: "C",
-                          "O",
-                          "W",
-                          "G",
-                          "K"
                   };
     var source = document.getElementById("entry").innerHTML;
     var template = Handlebars.compile(source);
