@@ -34,14 +34,16 @@ section {
 
 .dragging-letters {
 	margin: 0 auto;
-	width: 600px;
+	width: 450px;
 }
 
 .dragging-letters .drag {
 	float: left;
-	margin: 5px;
+	margin: 8px;
 	padding: 20px;
 	cursor: move;
 }
 
-.
+.drag span {
+	font-size: 40px;
+}

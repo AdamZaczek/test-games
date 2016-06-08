@@ -1,29 +1,29 @@
 (function() {
   function Game() {
-    /* urls */
-    //main img
+    /**
+   * @description Main IMG
+   * @type {Array}
+   */
     this.mainImgUrl = [
       "assets/images/cow.jpg"
     ];
 
-    //letters img
+    /**
+   * @description Letters
+   * @type {Array}
+   */
     this.letters = [
-      "assets/images/letter-c.png",
-      "assets/images/letter-g.png",
-      "assets/images/letter-w.png",
-      "assets/images/letter-k.png",
-      "assets/images/letter-o.png"
+      "C",
+      "G",
+      "W",
+      "K",
+      "O"
     ];
 
-    this.lettersId = [
-      "3-c",
-      "7-g",
-      "23-w",
-      "11-k",
-      "15-o"
-    ];
-
-    /* classes */ 
+    /**
+   * @description Classes
+   * @type {Array}
+   */ 
     this.usingClasses = [
       "main-image",
       "clearfix",
@@ -33,20 +33,29 @@
       "drag"
     ];
 
-    /* creating html */
-    //main img section
+    /**
+   * @description Creating HTML
+   * @description main IMG
+   * @type {Array}
+   */
     this.mainImg = [
       "<div class='" + this.usingClasses[0] + "'>",
         "<img src='" + this.mainImgUrl[0] + "'>",
       "</div>",
     ].join('');
 
-    //clearfix
+    /**
+   * @description Clearfix
+   * @type {Array}
+   */
     this.clearfix = [
       "<div class=" + this.usingClasses[1] + "></div>"
     ].join('');
 
-    //dropping section
+    /**
+   * @description Dropping Space
+   * @type {Array}
+   */
     this.dropSpace = [
       "<div class=" + this.usingClasses[2] + ">",
         "<div class=" + this.usingClasses[3] + " ondrop='drop(event)' ondragover='allowDrop(event)'></div>",
@@ -55,7 +64,10 @@
       "</div>"
     ].join('');
 
-    //clearfix
+    /**
+   * @description Clearfix
+   * @type {Array}
+   */
     this.clearfix2 = [
       "<div class=" + this.usingClasses[1] + "></div>"
     ].join('');
@@ -65,29 +77,36 @@
     //   return "<div class='drag' draggable='true' ondragstart='drag(event)'><img src=" + url + "></div>";
     // });
 
-    //dragging section
+    /**
+   * @description Dragging Space
+   * @type {Array}
+   */
     this.dragSpace = [
       "<div class=" + this.usingClasses[4] + ">",
         // this.lettersMap.join(''),
         "<div class='drag' draggable='true' ondragstart='drag(event)'>",
-          "<img src="+ this.letters[0] + " id=" + this.lettersId[0] + ">",
+          "<span>"+ this.letters[0] + "</span>",
         "</div>",
         "<div class='drag' draggable='true' ondragstart='drag(event)'>",
-          "<img src="+ this.letters[1] + " id=" + this.lettersId[1] + ">",
+          "<span>"+ this.letters[1] + "</span>",
         "</div>",
         "<div class='drag' draggable='true' ondragstart='drag(event)'>",
-          "<img src="+ this.letters[2] + " id=" + this.lettersId[2] + ">",
+          "<span>"+ this.letters[2] + "</span>",
         "</div>",
         "<div class='drag' draggable='true' ondragstart='drag(event)'>",
-          "<img src="+ this.letters[3] + " id=" + this.lettersId[3] + ">",
+          "<span>"+ this.letters[3] + "<span>",
         "</div>",
         "<div class='drag' draggable='true' ondragstart='drag(event)'>",
-          "<img src="+ this.letters[4] + " id=" + this.lettersId[4] + ">",
+          "<span>"+ this.letters[4] + "<span>",
         "</div>",
       "</div>"
     ].join('');
 
-    //all sections in one 
+    /**
+   * @description All sections in one
+   * @type {Array}
+   */
+
     this.allSections = [
       this.mainImg,
       this.clearfix,
@@ -105,4 +124,5 @@
     container.innerHTML = this.allSections;
   };
   window.Game = Game;
+
 })();
