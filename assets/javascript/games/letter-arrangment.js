@@ -13,7 +13,6 @@
     var template = Handlebars.compile(source);
     var html = template(context);
   
-
   LetterArrangement.prototype.render = function(container) {
     container.innerHTML = html;
   };
