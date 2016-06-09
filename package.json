@@ -1,0 +1,32 @@
+{
+  "name": "test-games",
+  "version": "1.0.0",
+  "description": "test games",
+  "main": "",
+  "scripts": {
+    "test": "entry point"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LukMona/test-games.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LukMona/test-games/issues"
+  },
+  "homepage": "https://github.com/LukMona/test-games#readme",
+  "dependencies": {
+    "dragula": "^3.7.1",
+    "handlebars": "^4.0.5"
+  },
+  "devDependencies": {
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-declare": "^0.3.0",
+    "gulp-handlebars": "^4.0.0",
+    "gulp-jshint": "^2.0.1",
+    "gulp-wrap": "^0.13.0",
+    "jshint-stylish": "^2.2.0"
+  }
+}
