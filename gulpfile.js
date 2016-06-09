@@ -1,26 +1,16 @@
+'use strict';
+
 var gulp = require("gulp");
-var jshint = require("gulp-jshint");
-var paths = {
-  scripts: ["node_modules/dragula/dist/dragula.min.js",
-            "node_modules/handlebars/dist/handlebars.min.js",
-           ],
-  dest: "assets/javascript/vendors",
-  myjs: ["assets/javascript/games/*.js",
-         "assets/javascript/*.js"
-       ],
-};
+var jshint = require("./tasks/gulp-jshint");
+var javascriptVendor = require("./tasks/gulp-javascript-vendor");
 
-gulp.task("jshint", function(){
-  gulp.src("assets/javascript/*.js")
-  .pipe(jshint())
-  .pipe(jshint.reporter("default"));
-});
+gulp.task("jshint", jshint);
+gulp.task("javascriptVendor", javascriptVendor);
 
-gulp.task("scripts", function(){
-  return gulp.src(paths.scripts)
-    .pipe(gulp.dest(paths.dest));
+gulp.task("watch", function watch() {
+  gulp.watch([
+    "assets/javascript/games/**/*.js",
+    "assets/javascript/app.js"
+  ], jshint);
 });
-
-gulp.task("watch", function(){
-  gulp.watch(paths.myjs, ["jshint", "scripts"]);
-});
+gulp.task("default", ["jshint", "javascriptVendor"]);

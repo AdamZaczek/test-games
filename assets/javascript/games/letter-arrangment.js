@@ -1,16 +1,16 @@
 (function() {
-  function LetterArrangement() {}  
+  function LetterArrangement() {}
   /**
    * Renders game into container
    * @param  {HTMLElement} container
    */
-  
+
   LetterArrangement.prototype.render = function(container) {
     var context = {
           imgUrl: "assets/images/cow.jpg",
           letters: [
             {
-              letter: "C", 
+              letter: "C",
             },
             {
               letter: "K",
