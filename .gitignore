@@ -3,3 +3,6 @@ assets/.DS_Store
 assets/javascript/.DS_Store
 assets/javascript/games/.DS_Store
 assets/stylesheets/.DS_Store
+node_modules
+npm-debug.log
+package.json
