@@ -4,8 +4,8 @@ requirejs.config({
 
 requirejs(["games/letter-arrangment"]);
 
-// /**
-//  * @description Using Drag'n'Drop Dragula
-//  */
+/**
+ * @description Using Drag'n'Drop Dragula
+ */
 
-// dragula([document.querySelector(".dragging-letters"), document.querySelector(".dropping-letters")]);
+dragula([document.querySelector(".dragging-letters"), document.querySelector(".dropping-letters")]);

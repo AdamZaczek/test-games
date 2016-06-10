@@ -54,7 +54,7 @@ section {
  *
  */
 
-.dropping-letters .drag:first-child {
+/*.dropping-letters .drag:first-child {
   position: absolute;
   top: 35px;
   left: 43px;
@@ -78,4 +78,4 @@ section {
 
 .lose {
   background-color: red;
-}
+}*/
