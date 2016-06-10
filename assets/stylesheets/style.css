@@ -49,37 +49,6 @@ section {
   font-size: 40px;
 }
 
-/**
- * @description after dropping letters
- *
- */
-
-/*.dropping-letters .drag:first-child {
-  position: absolute;
-  top: 35px;
-  left: 43px;
-}
-
-.dropping-letters .drag:nth-child(3) {
-  position: absolute;
-  top: 35px;
-  left: 160px;
-}
-
-.dropping-letters .drag:nth-child(5) {
-  position: absolute;
-  top: 35px;
-  left: 280px;
-}
-
-.win {
-  background-color: green;
-}
-
-.lose {
-  background-color: red;
-}*/
-
 .dropping-letters .drag {
   width: 80px;
   height: 80px;
