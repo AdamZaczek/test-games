@@ -21,7 +21,6 @@ section {
 .dropping-letters {
   margin: 0 auto;
   width: 360px;
-  position: relative;
 }
 
 .dropping-letters .drop {
@@ -31,6 +30,7 @@ section {
   float: left;
   padding: 20px;
   margin: 20px;
+  position: relative;
 }
 
 .dragging-letters {
@@ -79,6 +79,23 @@ section {
 .lose {
   background-color: red;
 }*/
+
+.dropping-letters .drag {
+  width: 80px;
+  height: 80px;
+  cursor: move;
+  margin: 0 auto;
+  padding: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.dropping-letters .drag span {
+  display: block;
+  padding-top: 25%;
+  padding-left: 25%;
+}
 
 .gu-mirror {
   display: none;
