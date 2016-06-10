@@ -79,3 +79,7 @@ section {
 .lose {
   background-color: red;
 }*/
+
+.gu-mirror {
+  display: none;
+}
