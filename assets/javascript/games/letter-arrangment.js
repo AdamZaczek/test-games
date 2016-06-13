@@ -6,7 +6,7 @@ define([], function() {
    * Renders game into container
    * @param  {HTMLElement} container
    */
-  LetterArrangement.prototype.render = function(container) {
+  LetterArrangement.prototype.render = function(container){
     var context = {
       riddles: {
             imgUrl: "assets/images/cow.jpg",
@@ -28,8 +28,12 @@ define([], function() {
               }
             ],
             correctAnswer: "COW"
-      }
-    };
+          }
+        }
+
+   /**
+    * @description Injecting game into Handlebars script in HTML
+    */
 
     var source = document.getElementById("entry").innerHTML;
     var template = Handlebars.compile(source);
@@ -37,28 +41,46 @@ define([], function() {
 
     container.innerHTML = html;
 
-    function result(){
-      var allDrop = document.querySelectorAll(".drop");
-      var allIsField = [];
+  /**
+   * @description Setting the Drag'n'Drop
+   */
 
-      for (var i = 0; i < allDrop.length; i++){
-        var dropCheck = allDrop[i].hasChildNodes();
-        allIsField.push(dropCheck);
-        }
+  var container = document.querySelectorAll(".drop");
+  var container2 = document.querySelector(".dragging-letters");
 
-      function checkDroppingSpace(drop){
-        return drop === true;
-      }
+  var drake = dragula({
+    copy: true
+  });
 
-      if(allIsField.every(checkDroppingSpace) === true){
-      }
-    }
+  container.forEach(function(drop){
+    drake.containers.push(drop);
+  });
+  drake.containers.push(container2);
 
-    result();
+  drake.on("drop", function(el, target, source, sibling){
+    var countNumber = context.riddles.correctAnswer;
+    var countBox = document.querySelectorAll(".drop .drag").length;
+
+    if (countNumber.length === countBox){
+      var letters = document.querySelectorAll(".drop .drag span");
+      var answer = [];
+
+      letters.forEach(function(letter){
+        var letter = letter.innerText.toString();
+        answer.push(letter);
+      });
+
+      var answer2 = answer.join("");
+      if (answer2 === countNumber){
+        console.log("Działa");
+      }else{}
+    };
+  });
   };
 
   var container = document.getElementById("gameSection");
   var letterArrangement = new LetterArrangement();
 
   return letterArrangement.render(container);
+
 });
