@@ -6,72 +6,72 @@ define([], function() {
    * Renders game into container
    * @param  {HTMLElement} container
    */
-   LetterArrangement.prototype.render = function(container){
+  LetterArrangement.prototype.render = function(container){
     var context = {
       riddles: [
-      {
-        imgUrl: "assets/images/cow.jpg",
-        letters: [
         {
-          letter: "C"
+          imgUrl: "assets/images/cow.jpg",
+          letters: [
+            {
+              letter: "C"
+            },
+            {
+              letter: "K"
+            },
+            {
+              letter: "O"
+            },
+            {
+              letter: "W"
+            },
+            {
+              letter: "G"
+            }
+          ],
+          correctAnswer: "COW"
         },
         {
-          letter: "K"
+          imgUrl: "assets/images/cat.png",
+          letters: [
+            {
+              letter: "L"
+            },
+            {
+              letter: "W"
+            },
+            {
+              letter: "C"
+            },
+            {
+              letter: "T"
+            },
+            {
+              letter: "A"
+            }
+          ],
+          correctAnswer: "CAT"
         },
         {
-          letter: "O"
-        },
-        {
-          letter: "W"
-        },
-        {
-          letter: "G"
+          imgUrl: "assets/images/dog.png",
+          letters: [
+            {
+              letter: "O"
+            },
+            {
+              letter: "A"
+            },
+            {
+              letter: "G"
+            },
+            {
+              letter: "D"
+            },
+            {
+              letter: "Y"
+            }
+          ],
+          correctAnswer: "DOG"
         }
-        ],
-        correctAnswer: "COW"
-      },
-      {
-        imgUrl: "assets/images/cat.png",
-        letters: [
-        {
-          letter: "L"
-        },
-        {
-          letter: "W"
-        },
-        {
-          letter: "C"
-        },
-        {
-          letter: "T"
-        },
-        {
-          letter: "A"
-        }
-        ],
-        correctAnswer: "CAT"
-      },
-      {
-        imgUrl: "assets/images/dog.png",
-        letters: [
-        {
-          letter: "O"
-        },
-        {
-          letter: "A"
-        },
-        {
-          letter: "G"
-        },
-        {
-          letter: "D"
-        },
-        {
-          letter: "Y"
-        }
-        ],
-        correctAnswer: "DOG"
-      }
       ]
     };
 
@@ -81,7 +81,8 @@ define([], function() {
 
     var source = document.getElementById("entry").innerHTML;
     var template = Handlebars.compile(source);
-    var html = template(context);
+    var html = template(context.riddles);
+    console.log(html);
 
     container.innerHTML = html;
 
@@ -89,54 +90,54 @@ define([], function() {
    * @description Setting the Drag'n'Drop
    */
 
-   var droppingContainer = document.querySelectorAll(".drop");
-   var draggingContainer = document.querySelector(".dragging-letters");
+    var droppingContainer = document.querySelectorAll(".drop");
+    var draggingContainer = document.querySelector(".dragging-letters");
 
-   var drake = dragula({
-    copy: true
-  });
+    var drake = dragula({
+      copy: true
+    });
 
-   droppingContainer.forEach(function(drop){
-    drake.containers.push(drop);
-  });
-   drake.containers.push(draggingContainer);
+    droppingContainer.forEach(function(drop){
+      drake.containers.push(drop);
+    });
+    drake.containers.push(draggingContainer);
 
-   drake.on("drop", function(el, target, source, sibling){
-    var countNumber = context.riddles.correctAnswer;
-    var countBox = document.querySelectorAll(".drop .drag").length;
+    drake.on("drop", function(el, target, source, sibling){
+      var countNumber = context.riddles.correctAnswer;
+      var countBox = document.querySelectorAll(".drop .drag").length;
 
-    if (countNumber.length === countBox){
-      var letters = document.querySelectorAll(".drop .drag span");
-      var answer = [];
+      if (countNumber.length === countBox){
+        var letters = document.querySelectorAll(".drop .drag span");
+        var answer = [];
 
-      letters.forEach(function(letter){
-        var letterInsideDiv = letter.innerText.toString();
-        answer.push(letterInsideDiv);
-      });
+        letters.forEach(function(letter){
+          var letterInsideDiv = letter.innerText.toString();
+          answer.push(letterInsideDiv);
+        });
 
-      var answer = answer.join("");
+        var answer = answer.join("");
 
-      if (answer === countNumber){
-        var droppingDiv = document.querySelector(".dropping-letters");
-        var newSpan = document.createElement("span");
-        var spanText = document.createTextNode("Congratulations! The answer is right.");
-        newSpan.appendChild(spanText);
-        droppingDiv.appendChild(newSpan);
-      }else{
-        var droppingDiv = document.querySelector(".dropping-letters");
-        var newSpan = document.createElement("span");
-        var spanText = document.createTextNode("Sorry, the answer is not correct. Try again.");
-        newSpan.appendChild(spanText);
-        droppingDiv.appendChild(newSpan);
+        if (answer === countNumber){
+          var droppingDiv = document.querySelector(".dropping-letters");
+          var newSpan = document.createElement("span");
+          var spanText = document.createTextNode("Congratulations! The answer is right.");
+          newSpan.appendChild(spanText);
+          droppingDiv.appendChild(newSpan);
+        }else{
+          var droppingDiv = document.querySelector(".dropping-letters");
+          var newSpan = document.createElement("span");
+          var spanText = document.createTextNode("Sorry, the answer is not correct. Try again.");
+          newSpan.appendChild(spanText);
+          droppingDiv.appendChild(newSpan);
+        }
       }
-    }
-  });
+    });
 
-};
+  };
 
-var container = document.getElementById("gameSection");
-var letterArrangement = new LetterArrangement();
+  var container = document.getElementById("gameSection");
+  var letterArrangement = new LetterArrangement();
 
-return letterArrangement.render(container);
+  return letterArrangement.render(container);
 
 });
