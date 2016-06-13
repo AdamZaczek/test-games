@@ -70,10 +70,21 @@ define([], function() {
         answer.push(letterInsideDiv);
       });
 
-      var answer2 = answer.join("");
-      if (answer2 === countNumber){
-        console.log("Działa");
-      }else{}
+      var answer = answer.join("");
+
+      if (answer === countNumber){
+        var droppingDiv = document.querySelector(".dropping-letters");
+        var newSpan = document.createElement("span");
+        var spanText = document.createTextNode("Congratulations! The answer is right.");
+        newSpan.appendChild(spanText);
+        droppingDiv.appendChild(newSpan);
+      }else{
+        var droppingDiv = document.querySelector(".dropping-letters");
+        var newSpan = document.createElement("span");
+        var spanText = document.createTextNode("Sorry, the answer is not correct. Try again.");
+        newSpan.appendChild(spanText);
+        droppingDiv.appendChild(newSpan);
+      }
     }
   });
   };
