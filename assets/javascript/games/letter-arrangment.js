@@ -29,7 +29,7 @@ define([], function() {
             ],
             correctAnswer: "COW"
           }
-        }
+        };
 
    /**
     * @description Injecting game into Handlebars script in HTML
@@ -45,17 +45,17 @@ define([], function() {
    * @description Setting the Drag'n'Drop
    */
 
-  var container = document.querySelectorAll(".drop");
-  var container2 = document.querySelector(".dragging-letters");
+  var droppingContainer = document.querySelectorAll(".drop");
+  var draggingContainer = document.querySelector(".dragging-letters");
 
   var drake = dragula({
     copy: true
   });
 
-  container.forEach(function(drop){
+  droppingContainer.forEach(function(drop){
     drake.containers.push(drop);
   });
-  drake.containers.push(container2);
+  drake.containers.push(draggingContainer);
 
   drake.on("drop", function(el, target, source, sibling){
     var countNumber = context.riddles.correctAnswer;
@@ -66,15 +66,15 @@ define([], function() {
       var answer = [];
 
       letters.forEach(function(letter){
-        var letter = letter.innerText.toString();
-        answer.push(letter);
+        var letterInsideDiv = letter.innerText.toString();
+        answer.push(letterInsideDiv);
       });
 
       var answer2 = answer.join("");
       if (answer2 === countNumber){
         console.log("Działa");
       }else{}
-    };
+    }
   });
   };
 
