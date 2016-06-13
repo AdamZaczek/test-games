@@ -45,48 +45,49 @@ define([], function() {
    * @description Setting the Drag'n'Drop
    */
 
-  var droppingContainer = document.querySelectorAll(".drop");
-  var draggingContainer = document.querySelector(".dragging-letters");
+    var droppingContainer = document.querySelectorAll(".drop");
+    var draggingContainer = document.querySelector(".dragging-letters");
 
-  var drake = dragula({
-    copy: true
-  });
+    var drake = dragula({
+      copy: true
+    });
 
-  droppingContainer.forEach(function(drop){
-    drake.containers.push(drop);
-  });
-  drake.containers.push(draggingContainer);
+    droppingContainer.forEach(function(drop){
+      drake.containers.push(drop);
+    });
+    drake.containers.push(draggingContainer);
 
-  drake.on("drop", function(el, target, source, sibling){
-    var countNumber = context.riddles.correctAnswer;
-    var countBox = document.querySelectorAll(".drop .drag").length;
+    drake.on("drop", function(el, target, source, sibling){
+      var countNumber = context.riddles.correctAnswer;
+      var countBox = document.querySelectorAll(".drop .drag").length;
 
-    if (countNumber.length === countBox){
-      var letters = document.querySelectorAll(".drop .drag span");
-      var answer = [];
+      if (countNumber.length === countBox){
+        var letters = document.querySelectorAll(".drop .drag span");
+        var answer = [];
 
-      letters.forEach(function(letter){
-        var letterInsideDiv = letter.innerText.toString();
-        answer.push(letterInsideDiv);
-      });
+        letters.forEach(function(letter){
+          var letterInsideDiv = letter.innerText.toString();
+          answer.push(letterInsideDiv);
+        });
 
-      var answer = answer.join("");
+        var answer = answer.join("");
 
-      if (answer === countNumber){
-        var droppingDiv = document.querySelector(".dropping-letters");
-        var newSpan = document.createElement("span");
-        var spanText = document.createTextNode("Congratulations! The answer is right.");
-        newSpan.appendChild(spanText);
-        droppingDiv.appendChild(newSpan);
-      }else{
-        var droppingDiv = document.querySelector(".dropping-letters");
-        var newSpan = document.createElement("span");
-        var spanText = document.createTextNode("Sorry, the answer is not correct. Try again.");
-        newSpan.appendChild(spanText);
-        droppingDiv.appendChild(newSpan);
+        if (answer === countNumber){
+          var droppingDiv = document.querySelector(".dropping-letters");
+          var newSpan = document.createElement("span");
+          var spanText = document.createTextNode("Congratulations! The answer is right.");
+          newSpan.appendChild(spanText);
+          droppingDiv.appendChild(newSpan);
+        }else{
+          var droppingDiv = document.querySelector(".dropping-letters");
+          var newSpan = document.createElement("span");
+          var spanText = document.createTextNode("Sorry, the answer is not correct. Try again.");
+          newSpan.appendChild(spanText);
+          droppingDiv.appendChild(newSpan);
+        }
       }
-    }
-  });
+    });
+
   };
 
   var container = document.getElementById("gameSection");
