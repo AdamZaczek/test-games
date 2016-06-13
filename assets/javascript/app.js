@@ -3,4 +3,3 @@ requirejs.config({
 });
 
 requirejs(["games/letter-arrangment"]);
-requirejs(["games/drag"]);
