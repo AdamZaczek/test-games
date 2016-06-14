@@ -7,73 +7,71 @@ define([], function() {
    * @param  {HTMLElement} container
    */
   LetterArrangement.prototype.render = function(container){
-    var context = {
-      riddles: [
-        {
-          imgUrl: "assets/images/cow.jpg",
-          letters: [
-            {
-              letter: "C"
-            },
-            {
-              letter: "K"
-            },
-            {
-              letter: "O"
-            },
-            {
-              letter: "W"
-            },
-            {
-              letter: "G"
-            }
-          ],
-          correctAnswer: "COW"
-        },
-        {
-          imgUrl: "assets/images/cat.png",
-          letters: [
-            {
-              letter: "L"
-            },
-            {
-              letter: "W"
-            },
-            {
-              letter: "C"
-            },
-            {
-              letter: "T"
-            },
-            {
-              letter: "A"
-            }
-          ],
-          correctAnswer: "CAT"
-        },
-        {
-          imgUrl: "assets/images/dog.png",
-          letters: [
-            {
-              letter: "O"
-            },
-            {
-              letter: "A"
-            },
-            {
-              letter: "G"
-            },
-            {
-              letter: "D"
-            },
-            {
-              letter: "Y"
-            }
-          ],
-          correctAnswer: "DOG"
-        }
-      ]
-    };
+    var context = [
+      {
+        imgUrl: "assets/images/cow.jpg",
+        letters: [
+          {
+            letter: "C"
+          },
+          {
+            letter: "K"
+          },
+          {
+            letter: "O"
+          },
+          {
+            letter: "W"
+          },
+          {
+            letter: "G"
+          }
+        ],
+        correctAnswer: "COW"
+      },
+      {
+        imgUrl: "assets/images/cat.png",
+        letters: [
+          {
+            letter: "L"
+          },
+          {
+            letter: "W"
+          },
+          {
+            letter: "C"
+          },
+          {
+            letter: "T"
+          },
+          {
+            letter: "A"
+          }
+        ],
+        correctAnswer: "CAT"
+      },
+      {
+        imgUrl: "assets/images/dog.png",
+        letters: [
+          {
+            letter: "O"
+          },
+          {
+            letter: "A"
+          },
+          {
+            letter: "G"
+          },
+          {
+            letter: "D"
+          },
+          {
+            letter: "Y"
+          }
+        ],
+        correctAnswer: "DOG"
+      }
+    ];
 
    /**
     * @description Injecting game into Handlebars script in HTML
@@ -81,9 +79,7 @@ define([], function() {
 
     var source = document.getElementById("entry").innerHTML;
     var template = Handlebars.compile(source);
-    var html = template(context.riddles);
-    console.log(html);
-
+    var html = template(context[0]);
     container.innerHTML = html;
 
   /**
@@ -94,7 +90,7 @@ define([], function() {
     var draggingContainer = document.querySelector(".dragging-letters");
 
     var drake = dragula({
-      copy: true
+      copy: true,
     });
 
     droppingContainer.forEach(function(drop){
@@ -103,35 +99,45 @@ define([], function() {
     drake.containers.push(draggingContainer);
 
     drake.on("drop", function(el, target, source, sibling){
-      var countNumber = context.riddles.correctAnswer;
-      var countBox = document.querySelectorAll(".drop .drag").length;
+      /**
+       * @description Checking the answer
+       */
 
-      if (countNumber.length === countBox){
-        var letters = document.querySelectorAll(".drop .drag span");
-        var answer = [];
+        var countNumber = context.correctAnswer;
+        var countBox = document.querySelectorAll(".drop .drag").length;
 
-        letters.forEach(function(letter){
-          var letterInsideDiv = letter.innerText.toString();
-          answer.push(letterInsideDiv);
-        });
+        if (countNumber.length === countBox){
+          var letters = document.querySelectorAll(".drop .drag span");
+          var answer = [];
 
-        var answer = answer.join("");
+          letters.forEach(function(letter){
+            var letterInsideDiv = letter.innerText.toString();
+            answer.push(letterInsideDiv);
+          });
 
-        if (answer === countNumber){
-          var droppingDiv = document.querySelector(".dropping-letters");
-          var newSpan = document.createElement("span");
-          var spanText = document.createTextNode("Congratulations! The answer is right.");
-          newSpan.appendChild(spanText);
-          droppingDiv.appendChild(newSpan);
-        }else{
-          var droppingDiv = document.querySelector(".dropping-letters");
-          var newSpan = document.createElement("span");
-          var spanText = document.createTextNode("Sorry, the answer is not correct. Try again.");
-          newSpan.appendChild(spanText);
-          droppingDiv.appendChild(newSpan);
+          var answer = answer.join("");
+
+        /**
+         * @description What to do if answer is right
+         */
+          if (answer === countNumber){
+            var droppingDiv = document.querySelector(".dropping-letters");
+            var newSpan = document.createElement("span");
+            var spanText = document.createTextNode("Congratulations! The answer is right.");
+            newSpan.appendChild(spanText);
+            droppingDiv.appendChild(newSpan);
+          }else{
+          /*
+           * @description What to do if answer is wrong
+           */
+            var droppingDiv = document.querySelector(".dropping-letters");
+            var newSpan = document.createElement("span");
+            var spanText = document.createTextNode("Sorry, the answer is not correct. Try again.");
+            newSpan.appendChild(spanText);
+            droppingDiv.appendChild(newSpan);
+          }
         }
-      }
-    });
+      });
 
   };
 
