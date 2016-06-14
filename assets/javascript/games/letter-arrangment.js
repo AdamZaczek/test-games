@@ -43,7 +43,7 @@ define([], function() {
     container.innerHTML = html;
 
     var droppingContainer = document.querySelectorAll(".drop");
-    var draggingContainer = document.querySelector(".dragging-container");
+    var draggingContainer = document.querySelector(".dragging-letters");
 
     droppingContainer.forEach(function(drop){
       this.drake.containers.push(drop);
