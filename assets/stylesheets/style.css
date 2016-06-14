@@ -66,6 +66,16 @@ section {
   padding-left: 25%;
 }
 
+.button {
+  width: 100px;
+  height: 20px;
+  margin: 0 auto;
+  border: 1px solid black;
+  box-shadow: 2px 2px;
+  text-align: center;
+  cursor: pointer;
+}
+
 .gu-mirror {
   display: none;
 }

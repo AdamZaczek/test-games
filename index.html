@@ -23,7 +23,7 @@
   <script id="entry" type="text/x-handlebars-template">
     <div>
       <div class='main-image'>
-        <img src='{{riddles.imgUrl}}'>
+        <img src='{{imgUrl}}'>
       </div>
       <div class="clearfix"></div>
       <div class="dropping-letters">
@@ -33,11 +33,15 @@
       </div>
       <div class="clearfix"></div>
       <div class="dragging-letters">
-      {{#each riddles.letters}}
+      {{#each letters}}
         <div class="drag">
           <span>{{letter}}</span>
         </div>
       {{/each}}
+      </div>
+      <div class="clearfix"></div>
+      <div class="button">
+      <span>CLICK</span>
       </div>
     </div>
   </script>
