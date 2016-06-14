@@ -36,6 +36,7 @@ section {
 .dragging-letters {
   margin: 0 auto;
   width: 450px;
+  height: 100px;
 }
 
 .dragging-letters .drag {
