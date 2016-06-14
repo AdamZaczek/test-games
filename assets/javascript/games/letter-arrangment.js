@@ -1,4 +1,7 @@
 define([], function() {
+  /**
+   * Main scope of LetterArrangement, access to all important prototypes
+   */
   function LetterArrangement() {
     this.template = "";
 
@@ -29,14 +32,22 @@ define([], function() {
     this.setup();
   }
 
+  /**
+   * Initiating Handlebars template and dragula library
+   * @return HTML template and dragula variable
+   */
   LetterArrangement.prototype.setup = function(){
     this.template = document.getElementById("entry").innerHTML;
 
     this.drake = dragula({
-      copy: true
+      copy: false
     });
   };
 
+  /**
+   * Rendering Handlebars template and setting containers for dragula
+   * Reference to the _bindEvents()
+   */
   LetterArrangement.prototype.render = function(container){
     var template = Handlebars.compile(this.template);
     var html = template(this.context);
@@ -53,10 +64,17 @@ define([], function() {
     this._bindEvents();
   };
 
+  /**
+   * Binding together drag'n'drop and onDrop function
+   */
   LetterArrangement.prototype._bindEvents = function(){
     this.drake.on("drop", this.onDrop.bind(this));
   };
 
+  /**
+   * Checking if dropped items are  placed correct
+   * @description still working on improving
+   */
   LetterArrangement.prototype.onDrop = function(el, target, source, sibling){
     var countNumber = this.context.correctAnswer;
     var countBox = document.querySelectorAll(".drop .drag").length;
