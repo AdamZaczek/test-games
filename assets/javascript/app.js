@@ -1,14 +1,16 @@
 requirejs.config({
   baseUrl: "assets/javascript",
+  paths: {
+    text: "text"
+  }
 });
 
 requirejs([
   "games/letter-arrangment"
 ], function(
-    LetterArrangement
-    ) {
-    var container = document.getElementById("gameSection");
-    var letterArrangement = new LetterArrangement();
+  letterArrangement
+) {
+  var container = document.getElementById("gameSection");
 
-    letterArrangement.render(container);
-  });
+  letterArrangement.render(container);
+});
