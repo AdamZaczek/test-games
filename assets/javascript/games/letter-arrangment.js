@@ -1,33 +1,35 @@
-define([], function() {
+define([
+  "text!games/letter-arrangment.html"
+], function(templateHtml) {
   /**
    * Main scope of LetterArrangement, access to all important prototypes
    */
-  function LetterArrangement() {
-    this.template = "";
+  function LetterArrangement(args) {
+    this.template = args.template;
 
     this.drake = null;
 
     this.context = {
       imgUrl: "assets/images/cow.jpg",
       letters: [
-          {
-            letter: "C"
-          },
-          {
-            letter: "K"
-          },
-          {
-            letter: "O"
-          },
-          {
-            letter: "W"
-          },
-          {
-            letter: "G"
-          }
-        ],
-        correctAnswer: "COW"
-      };
+        {
+          letter: "C"
+        },
+        {
+          letter: "K"
+        },
+        {
+          letter: "O"
+        },
+        {
+          letter: "W"
+        },
+        {
+          letter: "G"
+        }
+      ],
+      correctAnswer: "COW",
+    };
 
     this.setup();
   }
@@ -37,8 +39,6 @@ define([], function() {
    * @return HTML template and dragula variable
    */
   LetterArrangement.prototype.setup = function(){
-    this.template = document.getElementById("entry").innerHTML;
-
     this.drake = dragula({
       copy: false
     });
@@ -88,23 +88,19 @@ define([], function() {
         answer.push(letterInsideDiv);
       });
 
-      var answer = answer.join("");
+      var gettedAnswer = answer.join("");
 
-      if (answer === countNumber) {
-        var droppingDiv = document.querySelector(".dropping-letters");
-        var newSpan = document.createElement("span");
-        var spanText = document.createTextNode("Congratulations! The answer is right.");
-        newSpan.appendChild(spanText);
-        droppingDiv.appendChild(newSpan);
+      var answerContainer = document.querySelector(".result span");
+
+      if (gettedAnswer === countNumber) {
+        answerContainer.textContent = "Congratulations! The answer is right.";
       } else {
-        var droppingDiv = document.querySelector(".dropping-letters");
-        var newSpan = document.createElement("span");
-        var spanText = document.createTextNode("Sorry, the answer is not correct. Try again.");
-        newSpan.appendChild(spanText);
-        droppingDiv.appendChild(newSpan);
+        answerContainer.textContent = "Sorry, the answer is not correct. Try again.";
       }
     }
   };
 
-  return LetterArrangement;
+  return new LetterArrangement({
+    template: templateHtml
+  });
 });
