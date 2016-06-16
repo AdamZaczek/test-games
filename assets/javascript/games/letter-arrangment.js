@@ -76,8 +76,8 @@ define([
    * @description still working on improving
    */
   LetterArrangement.prototype.onDrop = function(){
-    var countNumber = this.context.correctAnswer;
     var countBox = document.querySelectorAll(".drop .drag").length;
+    var countNumber = this.context.correctAnswer;
 
     if (countNumber.length === countBox){
       var letters = document.querySelectorAll(".drop .drag span");
@@ -90,13 +90,45 @@ define([
 
       var gettedAnswer = answer.join("");
 
-      var answerContainer = document.querySelector(".result span");
+      var result = gettedAnswer === countNumber;
 
-      if (gettedAnswer === countNumber) {
-        answerContainer.textContent = "Congratulations! The answer is right.";
+      if (result) {
+        this.sucessEvent();
       } else {
-        answerContainer.textContent = "Sorry, the answer is not correct. Try again.";
+        this.failureEvent();
       }
+    }
+  };
+
+  /**
+   * Custom event for success
+   * @return {[string]} with result comment
+   */
+  LetterArrangement.prototype.sucessEvent = function(){
+    var myEvent = new CustomEvent("sucess");
+    var mainElement = document.querySelector(".dropping-letters");
+
+    mainElement.dispatchEvent(myEvent);
+    mainElement.addEventListener("sucess", good());
+
+    function good(){
+      console.log("Good job!");
+    }
+  };
+
+  /**
+   * Custom event for failure
+   * @return {[string]} with result comment
+   */
+  LetterArrangement.prototype.failureEvent = function(){
+    var myEvent2 = new CustomEvent("failure");
+    var mainElement = document.querySelector(".dropping-letters");
+
+    mainElement.dispatchEvent(myEvent2);
+    mainElement.addEventListener("failure", wrong());
+
+    function wrong(){
+      console.log("Sorry, you are wrong.");
     }
   };
 
