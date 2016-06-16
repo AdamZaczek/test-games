@@ -75,7 +75,7 @@ define([
    * Checking if dropped items are  placed correct
    * @description still working on improving
    */
-  LetterArrangement.prototype.onDrop = function(el, target, source, sibling){
+  LetterArrangement.prototype.onDrop = function(){
     var countNumber = this.context.correctAnswer;
     var countBox = document.querySelectorAll(".drop .drag").length;
 
