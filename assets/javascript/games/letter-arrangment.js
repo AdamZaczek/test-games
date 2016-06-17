@@ -1,11 +1,15 @@
 define([
-  "text!games/letter-arrangment.html"
-], function(templateHtml) {
+  "text!games/letter-arrangment.html",
+  "gameResult"
+], function(templateHtml, GameResult) {
+
   /**
    * Main scope of LetterArrangement, access to all important prototypes
    */
   function LetterArrangement(args) {
     this.template = args.template;
+
+    this.gameResult = GameResult;
 
     this.drake = null;
 
@@ -65,7 +69,7 @@ define([
   };
 
   /**
-   * Binding together drag'n'drop and onDrop function
+   * Binding events and elements
    */
   LetterArrangement.prototype._bindEvents = function(){
     this.drake.on("drop", this.onDrop.bind(this));
@@ -93,46 +97,15 @@ define([
       var result = gettedAnswer === countNumber;
 
       if (result) {
-        this.sucessEvent();
+        GameResult.sucess();
       } else {
-        this.failureEvent();
+        GameResult.failure();
       }
     }
   };
 
-  /**
-   * Custom event for success
-   * @return {[string]} with result comment
-   */
-  LetterArrangement.prototype.sucessEvent = function(){
-    var myEvent = new CustomEvent("sucess");
-    var mainElement = document.querySelector(".dropping-letters");
-
-    mainElement.dispatchEvent(myEvent);
-    mainElement.addEventListener("sucess", good());
-
-    function good(){
-      console.log("Good job!");
-    }
-  };
-
-  /**
-   * Custom event for failure
-   * @return {[string]} with result comment
-   */
-  LetterArrangement.prototype.failureEvent = function(){
-    var myEvent2 = new CustomEvent("failure");
-    var mainElement = document.querySelector(".dropping-letters");
-
-    mainElement.dispatchEvent(myEvent2);
-    mainElement.addEventListener("failure", wrong());
-
-    function wrong(){
-      console.log("Sorry, you are wrong.");
-    }
-  };
-
   return new LetterArrangement({
-    template: templateHtml
+    template: templateHtml,
+    gameResult: GameResult,
   });
 });
