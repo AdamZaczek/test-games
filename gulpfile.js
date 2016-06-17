@@ -12,7 +12,8 @@ gulp.task("javascriptExport", javascriptExport);
 gulp.task("watch", function watch() {
   gulp.watch([
     "assets/javascript/games/**/*.js",
-    "assets/javascript/app.js"
+    "assets/javascript/app.js",
+    "assets/javascript/utilities/**/*.js"
   ], jshint);
 });
 gulp.task("default", ["jshint", "javascriptVendor", "javascriptExport"]);
